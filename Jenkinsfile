@@ -1,26 +1,28 @@
 pipeline {
     agent any
 
-    tools {
-        gradle 'Gradle'
-    }
-
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/<omkarmaha1620-collab>/maven2.git'
+                git 'https://github.com/omkarmaha1620-collab/maven2.git'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'gradle build'
+                sh 'mvn compile'
             }
         }
 
-        stage('Run') {
+        stage('Test') {
             steps {
-                sh 'gradle run'
+                sh 'mvn test'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                sh 'mvn package'
             }
         }
     }
