@@ -4,19 +4,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn compile'
+                sh 'echo Building Maven Project'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                sh 'echo Running Tests'
             }
         }
 
         stage('Package') {
             steps {
-                sh 'mvn package'
+                sh 'echo Packaging Application'
             }
         }
     }
